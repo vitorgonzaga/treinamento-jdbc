@@ -8,9 +8,9 @@ import java.sql.SQLException;
 
 public class ConnectionFactory {
 
-    public DataSource dataSource;
+    private DataSource dataSource;
 
-    public ConnectionFactory() {
+    public ConnectionFactory() throws SQLException {
         ComboPooledDataSource comboPooledDataSource = new ComboPooledDataSource();
         comboPooledDataSource.setJdbcUrl("jdbc:mysql://localhost:3306/lojavirtual");
         comboPooledDataSource.setUser("root");
