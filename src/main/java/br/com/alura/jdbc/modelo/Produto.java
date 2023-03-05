@@ -2,9 +2,10 @@ package br.com.alura.jdbc.modelo;
 
 public class Produto {
 
+    private final String nome;
+    private final String descricao;
     private Integer id;
-    private String nome;
-    private String descricao;
+    private Integer categoriaId;
 
     public Produto(String nome, String descricao) {
         this.nome = nome;
@@ -17,6 +18,12 @@ public class Produto {
         this.descricao = descricao;
     }
 
+    public Produto(String nome, String descricao, Integer categoriaId) {
+        this.nome = nome;
+        this.descricao = descricao;
+        this.categoriaId = categoriaId;
+    }
+
     public String getNome() {
         return nome;
     }
@@ -27,6 +34,10 @@ public class Produto {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Integer getCategoriaId() {
+        return categoriaId;
     }
 
     @Override

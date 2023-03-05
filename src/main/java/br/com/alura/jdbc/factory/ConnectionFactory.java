@@ -1,4 +1,4 @@
-package br.com.alura.jdbc;
+package br.com.alura.jdbc.factory;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 
@@ -12,7 +12,7 @@ public class ConnectionFactory {
 
     public ConnectionFactory() throws SQLException {
         ComboPooledDataSource comboPooledDataSource = new ComboPooledDataSource();
-        comboPooledDataSource.setJdbcUrl("jdbc:mysql://localhost:3306/lojavirtual");
+        comboPooledDataSource.setJdbcUrl("jdbc:mysql://localhost:3306/loja_virtual");
         comboPooledDataSource.setUser("root");
         comboPooledDataSource.setPassword("root");
         // configurações adicionais

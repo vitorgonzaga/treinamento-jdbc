@@ -15,12 +15,13 @@ public class ProdutoDAO {
     }
 
     public void salvaProduto(Produto produto) throws SQLException {
-        String query = "INSERT INTO produto (NAME, DESCRICAO) VALUES (?, ?)";
+        String query = "INSERT INTO PRODUTO (NOME, DESCRICAO, CATEGORIA_ID) VALUES (?, ?, ?)";
         try (
                 PreparedStatement pstm = this.connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)
         ) {
             pstm.setString(1, produto.getNome());
             pstm.setString(2, produto.getDescricao());
+            pstm.setInt(3, produto.getCategoriaId());
             pstm.execute();
             try (ResultSet rst = pstm.getGeneratedKeys()) {
                 System.out.println(rst);
@@ -34,7 +35,7 @@ public class ProdutoDAO {
 
     public List<Produto> listaProdutos() throws SQLException {
         List<Produto> produtos = new ArrayList<Produto>();
-        String query = "SELECT id, name, descricao FROM produto";
+        String query = "SELECT ID, NOME, DESCRICAO FROM PRODUTO";
         try(PreparedStatement pstm = connection.prepareStatement(query)){
             pstm.execute();
             try(ResultSet rst = pstm.getResultSet()) {
